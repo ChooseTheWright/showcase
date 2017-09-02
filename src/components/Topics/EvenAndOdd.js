@@ -18,13 +18,13 @@ class EvenAndOdd extends Component {
       numArr[i] % 2 === 0 ? evenArr.push(parseInt(numArr[i], 10)): oddArr.push(parseInt(numArr[i], 10));
     }
 
-    this.setState({evenArray: evenArr, oddArray: oddArr});
+    this.setState({evenArray: evenArr, oddArray: oddArr, userInput: ''});
   }
   render () {
     return (
       <div className="puzzleBox evenAndOddPB">
         <h4>Evens And Odds</h4>
-        <input className="inputLine" onChange={(e) => {this.setState({userInput: e.target.value});}}></input>
+        <input className="inputLine" value={this.state.userInput} onChange={(e) => {this.setState({userInput: e.target.value});}}></input>
         <button className="confirmationButton" onClick={() => {this.numberSorter(this.state.userInput);}}></button>
         <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
         <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
